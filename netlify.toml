@@ -1,0 +1,16 @@
+[build]
+  command = "CI=false npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com https://www.googleapis.com https://cdn.tailwindcss.com; frame-src 'self' https://nimbus--lhp-fulfillment.firebaseapp.com; connect-src 'self' wss://*.firebaseio.com https://www.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;"
